@@ -11,7 +11,7 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Home</a></li>
       <?php foreach ($list as $menu) :?>
-        <li><a href="#"><?= h($menu->name) ?></a></li>
+        <li><?= $this->Html->link(__(h($menu->name)),['action' => 'type' , $menu->id]) ?></li>
       <?php endforeach;?>
       </ul>
       <ul class="nav navbar-nav navbar-right">

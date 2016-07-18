@@ -28,7 +28,7 @@ class HomeController extends AppController
 
 		// Start a new query.
 		$list = $menu->find('all')
-			->select(['name'])
+			->select(['name','id'])
 			->order(['id' => 'ASC'])
 			->limit(16)->toArray();
 			$this->set('list', $list);
@@ -37,9 +37,17 @@ class HomeController extends AppController
 	}
 	public function view($id = null)
 	{
-		$this->viewBuilder()->layout('view');
+		
 		$new = $this->News = TableRegistry::get($id);
 		$this->set('new', $new);
-		debug($new);
+		//debug($new);
+	}
+	public function type($id = null)
+	{
+		
+		$type = $this->Categories = TableRegistry::get($id);
+		
+		$this->set('type', $type);
+		debug($type);
 	}
 }
